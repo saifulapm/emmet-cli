@@ -13,10 +13,27 @@ A powerful command-line interface for Emmet abbreviation expansion, powered by t
 ## Installation
 
 ```bash
+# Install globally
+npm install -g @saifulapm/emmet-cli
+
+# Or install locally in your project
+npm install --save-dev @saifulapm/emmet-cli
+```
+
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/saifulapm/emmet-cli.git
+cd emmet-cli
+
+# Install dependencies
 npm install
+
+# Build
 npm run build
 
-# Link globally (optional)
+# Link globally for testing
 npm link
 ```
 
@@ -246,10 +263,7 @@ Advanced preferences and variables:
     "css.floatUnit": "rem",
     "bem.elementSeparator": "__",
     "bem.modifierSeparator": "--",
-    "profile.allowCompactBoolean": true,
-    "filter.commentTrigger": ["#", "."],
-    "filter.commentBefore": "<!-- ",
-    "filter.commentAfter": " -->"
+    "profile.allowCompactBoolean": true
   }
 }
 ```
@@ -275,9 +289,8 @@ Advanced preferences and variables:
 - `profile.allowCompactBoolean` - `<input disabled>` vs `<input disabled="disabled">`
 
 **Comment Filter:**
-- `filter.commentTrigger` - Elements that trigger comments (default: ["#", "."])
-- `filter.commentBefore` - Comment prefix (default: "<!-- ")
-- `filter.commentAfter` - Comment suffix (default: " -->")
+- Note: Comment filter settings use special defaults from vscode-emmet-helper
+- Only override `filter.commentTrigger`, `filter.commentBefore`, `filter.commentAfter` if you need custom comment templates
 
 **BEM:**
 - `bem.elementSeparator` - Element separator (default: "__")
@@ -394,19 +407,33 @@ DEBUG_EMMET=1 emmet expand "div.test" --syntax html
 ## API Usage
 
 ```typescript
-import { expand, wrap, extract, validate } from '@vscode/emmet-cli';
+import { expandCommand, wrapCommand, extractCommand, validateCommand } from '@saifulapm/emmet-cli';
 
 // Expand abbreviation
-const html = await expand('div.container>p*3', { syntax: 'html' });
+const html = await expandCommand({
+  abbreviation: 'div.container>p*3',
+  syntax: 'html',
+  tabStops: false
+});
 
 // Wrap text
-const wrapped = await wrap('div.wrapper', 'Hello World', { syntax: 'html' });
+const wrapped = await wrapCommand({
+  abbreviation: 'div.wrapper',
+  text: 'Hello World',
+  syntax: 'html'
+});
 
 // Extract abbreviation
-const abbr = await extract('div.test', { syntax: 'html' });
+const result = await extractCommand({
+  text: 'div.test',
+  syntax: 'html'
+});
 
 // Validate abbreviation
-const isValid = await validate('ul>li*3', { syntax: 'html' });
+const result = await validateCommand({
+  abbreviation: 'ul>li*3',
+  syntax: 'html'
+});
 ```
 
 ## License
