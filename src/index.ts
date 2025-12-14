@@ -20,10 +20,10 @@ program
 program
   .option('-s, --syntax <lang>', 'Language/syntax (html, css, jsx, etc.)')
   .option('-f, --filter <filters>', 'Filters: bem, c, t (comma-separated)')
-  .option('--config <path>', 'Custom config directory')
-  .option('--indent <chars>', 'Indentation string (default: tab)', '\t')
-  .option('--tab-stops', 'Include tab stops (default: true)', true)
-  .option('--no-tab-stops', 'Disable tab stops')
+  .option('-c, --config <path>', 'Custom config directory')
+  .option('-i, --indent <chars>', 'Indentation string (default: tab)', '\t')
+  .option('-t, --tab-stops', 'Include tab stops (default: true)', true)
+  .option('-n, --no-tab-stops', 'Disable tab stops')
   .allowUnknownOption(); // Allow --var-* options
 
 // Expand command

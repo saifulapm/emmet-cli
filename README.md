@@ -65,10 +65,10 @@ Expand Emmet abbreviation to code.
 **Options:**
 - `-s, --syntax <lang>` - Language/syntax (html, css, jsx, etc.)
 - `-f, --filter <filters>` - Filters: bem, c, t (comma-separated)
-- `--config <path>` - Custom config directory
-- `--indent <chars>` - Indentation string (default: tab)
-- `--tab-stops` - Include tab stops (default: true)
-- `--no-tab-stops` - Disable tab stops
+- `-c, --config <path>` - Custom config directory
+- `-i, --indent <chars>` - Indentation string (default: tab)
+- `-t, --tab-stops` - Include tab stops (default: true)
+- `-n, --no-tab-stops` - Disable tab stops
 - `--var-<name>=<value>` - Set template variables
 
 **Examples:**
@@ -95,9 +95,14 @@ emmet expand "button[onClick={handleClick}]" --syntax jsx
 
 # Custom indentation (2 spaces)
 emmet expand "ul>li*2" --syntax html --indent "  " --no-tab-stops
+# Or using short options:
+emmet expand "ul>li*2" -s html -i "  " -n
 
 # Set template variables
 emmet expand "!" --syntax html --var-lang=en --var-charset=UTF-8
+
+# Using short options for quick commands
+emmet expand "div#app>header.header" -s html -f c -n
 ```
 
 ### `emmet wrap <abbreviation>`
