@@ -1,0 +1,29 @@
+{
+  "title": "Emmet CLI Syntax Profiles Configuration",
+  "description": "Output formatting per syntax (.emmet/syntaxProfiles.json)",
+
+  "html": {
+    "tag_case": "lower",
+    "attr_case": "lower",
+    "attr_quotes": "double",
+    "self_closing_tag": "html"
+  },
+
+  "xhtml": {
+    "tag_case": "lower",
+    "attr_quotes": "double",
+    "self_closing_tag": "xhtml"
+  },
+
+  "xml": {
+    "tag_case": "upper",
+    "attr_quotes": "single",
+    "self_closing_tag": "xml"
+  },
+
+  "jsx": {
+    "tag_case": "lower",
+    "attr_quotes": "double",
+    "self_closing_tag": "xhtml"
+  }
+}

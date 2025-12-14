@@ -1,0 +1,33 @@
+{
+  "title": "Emmet CLI Snippets Configuration",
+  "description": "Custom snippets and variables per syntax (.emmet/snippets.json)",
+
+  "variables": {
+    "lang": "en",
+    "charset": "UTF-8"
+  },
+
+  "html": {
+    "snippets": {
+      "hero": "section.hero>div.container>h1.hero-title{Hero Title}+p.hero-description{Hero Description}",
+      "card": "div.card>img.card-img[src alt]+div.card-body>h5.card-title{Title}+p.card-text{Description}",
+      "nav": "nav.navbar>div.container>ul.nav>li.nav-item*3>a.nav-link[href='#']{Link}",
+      "form": "form.form>div.form-group*3>label.form-label+input.form-control:text"
+    }
+  },
+
+  "css": {
+    "snippets": {
+      "flex-center": "display: flex; align-items: center; justify-content: center;",
+      "flex-between": "display: flex; align-items: center; justify-content: space-between;",
+      "abs-center": "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);",
+      "grid-3": "display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;"
+    }
+  },
+
+  "jsx": {
+    "snippets": {
+      "rfc": "import React from 'react';\n\nconst Component = () => {\n  return <div></div>;\n};\n\nexport default Component;"
+    }
+  }
+}

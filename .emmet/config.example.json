@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Emmet CLI Advanced Configuration",
+  "description": "Advanced preferences and variables for Emmet CLI (.emmet/config.json)",
+
+  "variables": {
+    "lang": "en",
+    "charset": "UTF-8",
+    "author": "Your Name",
+    "company": "Your Company"
+  },
+
+  "preferences": {
+    "css.color.short": true,
+    "css.intUnit": "px",
+    "css.floatUnit": "em",
+    "css.unitAliases": "e:em, p:%, x:ex",
+    "css.fuzzySearchMinScore": 0.3,
+    "css.valueSeparator": ": ",
+    "css.propertyEnd": ";",
+    "scss.valueSeparator": ": ",
+    "scss.propertyEnd": ";",
+    "less.valueSeparator": ": ",
+    "less.propertyEnd": ";",
+    "sass.valueSeparator": ": ",
+    "sass.propertyEnd": "",
+    "stylus.valueSeparator": " ",
+    "stylus.propertyEnd": "",
+    "format.noIndentTags": "html",
+    "format.forceIndentationForTags": "body",
+    "output.inlineBreak": 3,
+    "output.reverseAttributes": false,
+    "output.selfClosingStyle": "html",
+    "profile.allowCompactBoolean": false,
+    "filter.commentTrigger": ["#", "."],
+    "filter.commentBefore": "<!-- ",
+    "filter.commentAfter": " -->",
+    "bem.elementSeparator": "__",
+    "bem.modifierSeparator": "_"
+  }
+}
