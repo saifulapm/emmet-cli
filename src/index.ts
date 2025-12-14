@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { expandCommand } from './commands/expand';
 import { wrapCommand } from './commands/wrap';
 import { extractCommand } from './commands/extract';
@@ -9,12 +11,17 @@ import { EmmetError } from './types/cli';
 import { writeStdout, writeStderr } from './utils/output';
 import { parseVariables } from './config/merger';
 
+// Read version from package.json
+const packageJson = JSON.parse(
+  readFileSync(join(__dirname, '../package.json'), 'utf-8')
+);
+
 const program = new Command();
 
 program
   .name('emmet')
   .description('VSCode Emmet CLI - Full-featured Emmet abbreviation expansion')
-  .version('1.0.0');
+  .version(packageJson.version);
 
 // Global options
 program
