@@ -230,6 +230,8 @@ emmet expand "hero" --syntax html
 emmet expand "fx" --syntax css
 ```
 
+**Important:** Snippets must be valid Emmet abbreviation syntax (tags, classes, IDs, nesting operators like `>`, `+`, `^`, etc.). Plain text or code won't work - it will be treated as a tag name.
+
 ### syntaxProfiles.json
 
 Customize output formatting per syntax:
@@ -343,14 +345,16 @@ emmet expand "div.block>div.block__element" --syntax html --filter "bem,c"
 
 ## Example Workflows
 
-### React Component Generation
+### React Component Snippets
 
 Create `.emmet/snippets.json`:
 ```json
 {
   "jsx": {
     "snippets": {
-      "rfc": "import React from 'react';\n\nconst Component = () => {\n  return <div></div>;\n};\n\nexport default Component;"
+      "card": "div.card>div.card-header>h3{Title}^div.card-body>p{Content}",
+      "modal": "div.modal>div.modal-content>div.modal-header>h2{Modal Title}^div.modal-body>p{Modal content}^div.modal-footer>button{Close}",
+      "form": "form>div.form-group>label{Name}+input[type=text name=username]^button[type=submit]{Submit}"
     }
   }
 }
@@ -358,8 +362,14 @@ Create `.emmet/snippets.json`:
 
 Usage:
 ```bash
-emmet expand "rfc" --syntax jsx > Component.jsx
+emmet expand "card" --syntax jsx --no-tab-stops
+# Output: <div className="card">...</div>
+
+emmet expand "form" --syntax jsx --no-tab-stops
+# Generates complete form structure with JSX syntax
 ```
+
+**Note:** Emmet snippets must use Emmet abbreviation syntax (tags, classes, nesting). They cannot contain arbitrary JavaScript code.
 
 ### CSS Utility Classes
 
