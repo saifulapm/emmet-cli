@@ -27,7 +27,9 @@
 
   "jsx": {
     "snippets": {
-      "rfc": "import React from 'react';\n\nconst Component = () => {\n  return <div></div>;\n};\n\nexport default Component;"
+      "card": "div.card>div.card-header>h3{Card Title}^div.card-body>p{Card content}",
+      "modal": "div.modal>div.modal-content>div.modal-header>h2{Modal}^div.modal-body>p{Content}^div.modal-footer>button{Close}",
+      "form": "form>div.form-group>label{Name}+input[type=text name=username]^button[type=submit]{Submit}"
     }
   }
 }
