@@ -23,12 +23,14 @@ program
   .option('--config <path>', 'Custom config directory')
   .option('--indent <chars>', 'Indentation string (default: tab)', '\t')
   .option('--tab-stops', 'Include tab stops (default: true)', true)
-  .option('--no-tab-stops', 'Disable tab stops');
+  .option('--no-tab-stops', 'Disable tab stops')
+  .allowUnknownOption(); // Allow --var-* options
 
 // Expand command
 program
   .command('expand [abbreviation]')
   .description('Expand Emmet abbreviation')
+  .allowUnknownOption() // Allow --var-* options
   .action(async (abbreviation, options, command) => {
     try {
       const globalOpts = command.parent.opts();
@@ -56,6 +58,7 @@ program
   .command('wrap <abbreviation>')
   .description('Wrap text/selection with abbreviation (text from stdin)')
   .option('--multi-line', 'Each line becomes separate item')
+  .allowUnknownOption() // Allow --var-* options
   .action(async (abbreviation, cmdOptions, command) => {
     try {
       const globalOpts = command.parent.opts();
