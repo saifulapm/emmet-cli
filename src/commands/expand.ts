@@ -63,6 +63,11 @@ export async function expandCommand(
       console.error('Combined config:', JSON.stringify(combinedConfig, null, 2));
     }
 
+    // Log filter for debugging
+    if (process.env.DEBUG_EMMET) {
+      console.error('Filter:', options.filter);
+    }
+
     // Get expand options with filters
     // Snippets are loaded from .emmet/snippets.json via loadConfig
     const expandOpts = getExpandOptions(
@@ -71,19 +76,16 @@ export async function expandCommand(
       options.filter
     );
 
-    // Create user config for expansion
-    const userConfig: UserConfig = {
-      type: syntaxType,
-      syntax,
-      options: expandOpts.options,
-      variables: expandOpts.variables,
-      snippets: expandOpts.snippets
-    };
+    // Log expandOpts for debugging
+    if (process.env.DEBUG_EMMET) {
+      console.error('expandOpts.options:', JSON.stringify(expandOpts.options, null, 2));
+    }
 
     // Expand abbreviation
+    // Pass expandOpts directly as it contains all necessary config including filters
     let expanded: string;
     try {
-      expanded = expandAbbreviation(abbreviation, userConfig);
+      expanded = expandAbbreviation(abbreviation, expandOpts as any);
     } catch (error) {
       if (error instanceof Error) {
         throw new EmmetError(

@@ -32,9 +32,6 @@
     "output.reverseAttributes": false,
     "output.selfClosingStyle": "html",
     "profile.allowCompactBoolean": false,
-    "filter.commentTrigger": ["#", "."],
-    "filter.commentBefore": "<!-- ",
-    "filter.commentAfter": " -->",
     "bem.elementSeparator": "__",
     "bem.modifierSeparator": "_"
   }

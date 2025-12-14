@@ -181,9 +181,7 @@ describe('expand command', () => {
       expect(result).toContain('block_element');
     });
 
-    it.skip('should apply comment filter', async () => {
-      // Note: Comment filter (c) is not fully supported by @vscode/emmet-helper in CLI mode
-      // This is a known limitation of the underlying library
+    it('should apply comment filter', async () => {
       const result = await expandCommand({
         abbreviation: 'div#main',
         syntax: 'html',

@@ -222,11 +222,11 @@ export function getDefaultAdvancedConfig(): AdvancedEmmetConfig {
       'output.reverseAttributes': false,
       'output.selfClosingStyle': 'html',
       'profile.allowCompactBoolean': false,
-      'filter.commentTrigger': ['#', '.'],
-      'filter.commentBefore': '<!-- ',
-      'filter.commentAfter': ' -->',
       'bem.elementSeparator': '__',
       'bem.modifierSeparator': '_'
+      // NOTE: Do not set filter.commentTrigger, filter.commentBefore, filter.commentAfter here
+      // These have special default values in vscode-emmet-helper that should not be overridden
+      // unless the user explicitly sets them in .emmet/config.json
     }
   };
 }

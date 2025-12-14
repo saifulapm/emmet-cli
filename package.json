@@ -18,6 +18,12 @@
   "bin": {
     "emmet": "bin/emmet.js"
   },
+  "files": [
+    "bin/",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
